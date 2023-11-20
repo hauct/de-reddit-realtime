@@ -9,7 +9,6 @@ services:
       dockerfile: Dockerfile.spark
     command: bin/spark-class org.apache.spark.deploy.master.Master
     volumes:
-      - ./config:/opt/bitnami/spark/config
       - ./jobs:/opt/bitnami/spark/jobs
       - ./datasets:/opt/bitnami/spark/datasets
       - ./requirements.txt:/requirements.txt
@@ -27,7 +26,6 @@ services:
       dockerfile: Dockerfile.spark
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     volumes:
-      - ./config:/opt/bitnami/spark/config
       - ./jobs:/opt/bitnami/spark/jobs
       - ./datasets:/opt/bitnami/spark/datasets
       - ./requirements.txt:/requirements.txt
