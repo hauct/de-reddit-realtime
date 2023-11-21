@@ -1,6 +1,6 @@
 config = {
     "openai": {
-        "api_key": "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"
+        "api_key": "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"
     },
     "kafka": {
         "sasl.username": "5ZT56YOWTALOMBQE",

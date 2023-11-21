@@ -39,4 +39,4 @@ def send_data_over_socket(file_path, host='127.0.0.1', port=9999, chunk_size=2):
         print('Connection closed')
 
 if __name__ == '__main__':
-    send_data_over_socket("../datasets/yelp_academic_dataset_review.json")
+    send_data_over_socket("datasets/yelp_academic_dataset_review.json")

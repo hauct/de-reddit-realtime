@@ -1,30 +1,30 @@
-import openai
+# import openai
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from config import config
 
 
-def sentiment_analysis(comment) -> str:
-    if comment:
-        openai.api_key = config['openai']['api_key']
-        completion = openai.ChatCompletion.create(
-            model='gpt-3.5-turbo',
-            messages = [
-                {
-                    "role": "system",
-                    "content": """
-                        You're a machine learning model with a task of classifying comments into POSITIVE, NEGATIVE, NEUTRAL.
-                        You are to respond with one word from the option specified above, do not add anything else.
-                        Here is the comment:
+# def sentiment_analysis(comment) -> str:
+#     if comment:
+#         openai.api_key = config['openai']['api_key']
+#         completion = openai.ChatCompletion.create(
+#             model='gpt-3.5-turbo',
+#             messages = [
+#                 {
+#                     "role": "system",
+#                     "content": """
+#                         You're a machine learning model with a task of classifying comments into POSITIVE, NEGATIVE, NEUTRAL.
+#                         You are to respond with one word from the option specified above, do not add anything else.
+#                         Here is the comment:
                         
-                        {comment}
-                    """.format(comment=comment)
-                }
-            ]
-        )
-        return completion.choices[0].message['content']
-    return "Empty"
+#                         {comment}
+#                     """.format(comment=comment)
+#                 }
+#             ]
+#         )
+#         return completion.choices[0].message['content']
+#     return "Empty"
 
 def start_streaming(spark):
     topic = 'customers_review'
@@ -48,12 +48,12 @@ def start_streaming(spark):
                      .select(from_json(col('value'), schema).alias("data"))
                      .select(("data.*")))
 
-        sentiment_analysis_udf = udf(sentiment_analysis, StringType())
+        # sentiment_analysis_udf = udf(sentiment_analysis, StringType())
 
-        stream_df = stream_df.withColumn('feedback',
-                                            when(col('text').isNotNull(), sentiment_analysis_udf(col('text')))
-                                            .otherwise(None)
-                                            )
+        # stream_df = stream_df.withColumn('feedback',
+        #                                     when(col('text').isNotNull(), sentiment_analysis_udf(col('text')))
+        #                                     .otherwise(None)
+        #                                     )
 
         kafka_df = stream_df.selectExpr("CAST(review_id AS STRING) AS key", "to_json(struct(*)) AS value")
         
