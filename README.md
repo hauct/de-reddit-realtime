@@ -104,13 +104,13 @@ The project is structured with the following components:
 
 - Go back to page `Confluent`, in tag `Connectors`, search `Elasticsearch Service Sink` and configure hyper parameters as below:
 
-|                                                                |                                                                 |
-|----------------------------------------------------------------|-----------------------------------------------------------------|
-|![elastic-sink-connector1.png](imgs/elastic-sink-connector1.png)|![elastic-sink-connector2.png](imgs/elastic-sink-connector2.png) |
-|----------------------------------------------------------------|-----------------------------------------------------------------|
-|![elastic-sink-connector3.png](imgs/elastic-sink-connector3.png)|![elastic-sink-connector4.png](imgs/elastic-sink-connector4.png) |
-|----------------------------------------------------------------|-----------------------------------------------------------------|
-|![elastic-sink-connector5.png](imgs/elastic-sink-connector5.png)|![elastic-sink-connector6.png](imgs/elastic-sink-connector6.png) |
+|                                          |                                          |
+|------------------------------------------|------------------------------------------|
+|![1.png](imgs/elastic-sink-connector1.png)|![2.png](imgs/elastic-sink-connector2.png)|
+|------------------------------------------|------------------------------------------|
+|![3.png](imgs/elastic-sink-connector3.png)|![4.png](imgs/elastic-sink-connector4.png)|
+|------------------------------------------|------------------------------------------|
+|![5.png](imgs/elastic-sink-connector5.png)|![6.png](imgs/elastic-sink-connector6.png)|
 
 
 **Note**: You need to get Elastic account and password here:
