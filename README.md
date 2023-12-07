@@ -55,7 +55,7 @@ The project is structured with the following components:
     docker compose up -d
     ```
 
-  Make sure these containers is running in your Docker
+  Make sure these containers are running in your Docker
 
   ![docker-containers.png](imgs/docker-containers.png)
 
